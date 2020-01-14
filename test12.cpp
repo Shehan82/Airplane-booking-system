@@ -26,6 +26,7 @@ class flight
 	public:
 		void available_flights();
 		void view_flights();
+		void seat_availability();
 };
 
 void flight::available_flights()
@@ -179,13 +180,99 @@ void flight::view_flights()
 	{
 		cout<<"This flight is not present!"<<endl;
 	}	
+}
+
+void flight::seat_availability()
+{
+	int count2=0;
+	getline(cin,data);
+	int seat;
+	cin>>seat;
+	fin.open("sample_data_set.txt");
+	while(fin)
+	{
+		getline(fin,line);
+		strcpy(array,line.c_str());
+		if(data==line)
+		{
+			count2++;
+			while(fin)
+			{
+				getline(fin,line);
+				strcpy(array,line.c_str());
+				
+				if((array[1]==' ')&&(array[2]=='B')) //count B seats
+				{
+					for(i=4;i<strlen(array);i++)
+					{
+						count++;
+					
+					}	
+				}
+				else if((array[2]==' ')&&(array[3]=='B')) //count B seats
+				{
+					for(i=5;i<strlen(array);i++)
+					{
+						count++;
+					
+					}	
+				}
+
+				if((array[1]==' ')&&(array[2]=='E')) //count E seats
+				{
+					for(i=4;i<strlen(array);i++)
+					{
+						count1++;
+					
+					}	
+				}
+				else if((array[2]==' ')&&(array[3]=='E')) //count E seats
+				{
+					for(i=5;i<strlen(array);i++)
+					{
+						count1++;
+					
+					}	
+				}
+
+
+
+				
+				if (array[0]=='\0')
+				{
+					if (count1+count2>=seat)
+					{
+						cout<<"Booking available"<<endl;
+					}
+					else
+					{
+						cout<<"Booking not availble"<<endl;
+					}
+					//cout<<"B class seats : "<<count<<endl;
+					//cout<<"E class seats : "<<count1<<endl;
+					count=0;
+					count1=0;
+					cout<<endl;
+					break;
+				}
+			}
+		}
+
+
+		
+	}
+	if(count2<1)
+	{
+		cout<<"This flight is not present!"<<endl;
+	}
 }	
 
 int main()
 {
 	flight a;
 	//a.available_flights();
-	a.view_flights();
+	//a.view_flights();
+	  a.seat_availability();
 
 	return 0;
 }
