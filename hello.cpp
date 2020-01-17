@@ -209,7 +209,11 @@ int main()
 	int count=0,row=0,count1=0,i;
 	fstream fin,fin1;
 	string line,line1;
-	int count3=0,count4=0;
+	int count3=0,count4=0,count5=0;
+
+	string row_number;
+	int l,p,n;
+	char letter,arr[10];
 	
 	fin1.open("sample_data_set.txt");
 	while(fin1)
@@ -369,8 +373,81 @@ int main()
 						break;
 					}
 				} 
-				//flight_details[2].e_count1();
-				//cout<<flight_details[2].cnte;
+				break;
+			case 4:
+				//cout<<"helloo";
+				cin>>name;
+
+				for(i=0;i<count;i++)
+				{
+					count5++;
+					if(flight_details[i].flight_num==name)
+					{
+						count5++;
+							cin>>row_number;
+							strcpy(arr,row_number.c_str());
+
+							//cout<<arr[0];
+							for(l=0;l<60;l++)
+							{
+								//cout<<"hello";
+									if(flight_details[i].row_num[l].seats[0]==arr[0] &&  flight_details[i].row_num[l].seats[1]==' ')
+									{
+										cin>>letter;
+										for(p=4;p<strlen(flight_details[i].row_num[l].seats);p++)
+										{
+											if(flight_details[i].row_num[l].seats[p]==letter)
+											{
+												for(n=p;n<strlen(flight_details[i].row_num[l].seats);n++)
+												{
+													flight_details[i].row_num[l].seats[p]=flight_details[i].row_num[l].seats[p+1];
+													p++;
+												}
+												
+											}
+										}
+										flight_details[i].get_seat();
+										
+									}
+									else if(flight_details[i].row_num[l].seats[0]==arr[0] && flight_details[i].row_num[l].seats[1]==arr[1])
+									{
+										cin>>letter;
+										for(p=5;p<strlen(flight_details[i].row_num[l].seats);p++)
+										{
+											//cout<<"wjwejh";
+											if(flight_details[i].row_num[l].seats[p]==letter)
+											{
+												for(n=p;n<strlen(flight_details[i].row_num[l].seats);n++)
+												{
+													flight_details[i].row_num[l].seats[p]=flight_details[i].row_num[l].seats[p+1];
+													p++;
+													//cout<<"blk";
+												}
+												//cout<<strlen(flight_details[i].row_num[l].seats);
+												break;
+											}
+
+										}
+										flight_details[i].get_seat();
+
+									}
+							}
+							
+
+						break;
+					}
+					else if(count5==count)
+					{
+						
+						cout<<"Invalid flight number!"<<endl;
+						
+						break;
+					}
+					
+
+
+				}
+				//break;
 			
 
 
