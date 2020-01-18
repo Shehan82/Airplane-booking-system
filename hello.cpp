@@ -209,13 +209,14 @@ int main()
 	int count=0,row=0,count1=0,i;
 	fstream fin,fin1;
 	string line,line1;
-	int count3=0,count4=0,count5=0;
+	int count3=0,count4=0,count5=0,count6=4,count7=5;
+	int r;
 
 	string row_number;
 	int l,p,n;
 	char letter,arr[10];
 	
-	fin1.open("sample_data_set.txt");
+	fin1.open("sample_data.txt");
 	while(fin1)
 	{
 		getline(fin1,line1);
@@ -230,7 +231,7 @@ int main()
 	}
 
 	flight flight_details[count1];
-	fin.open("sample_data_set.txt");
+	fin.open("sample_data.txt");
 	int count2=0;
 	while(fin)
 	{
@@ -376,6 +377,7 @@ int main()
 				break;
 			case 4:
 				//cout<<"helloo";
+				cout<<"Enter flight number : ";
 				cin>>name;
 
 				for(i=0;i<count;i++)
@@ -383,19 +385,22 @@ int main()
 					count5++;
 					if(flight_details[i].flight_num==name)
 					{
-						count5++;
+						//count5++;
+							cout<<"Enter row number : ";
 							cin>>row_number;
 							strcpy(arr,row_number.c_str());
+							r=strlen(arr);
 
 							//cout<<arr[0];
 							for(l=0;l<60;l++)
 							{
 								//cout<<"hello";
-									if(flight_details[i].row_num[l].seats[0]==arr[0] &&  flight_details[i].row_num[l].seats[1]==' ')
+									if(r==1 && flight_details[i].row_num[l].seats[0]==arr[0] &&  flight_details[i].row_num[l].seats[1]==' ')
 									{
+										cout<<"Enter Seat character : ";   
 										cin>>letter;
 										for(p=4;p<strlen(flight_details[i].row_num[l].seats);p++)
-										{
+										{	count6++;
 											if(flight_details[i].row_num[l].seats[p]==letter)
 											{
 												for(n=p;n<strlen(flight_details[i].row_num[l].seats);n++)
@@ -403,17 +408,27 @@ int main()
 													flight_details[i].row_num[l].seats[p]=flight_details[i].row_num[l].seats[p+1];
 													p++;
 												}
+												cout<<endl<<"Seat Booked successful!"<<endl;
+												flight_details[i].get_seat();
+												break;
 												
 											}
+											else if(count6==strlen(flight_details[i].row_num[l].seats))
+											{
+												cout<<"invalid seat character,seat not book.Try again!"<<endl;
+											}
 										}
-										flight_details[i].get_seat();
+										
 										
 									}
-									else if(flight_details[i].row_num[l].seats[0]==arr[0] && flight_details[i].row_num[l].seats[1]==arr[1])
+									else if(r==2 && flight_details[i].row_num[l].seats[0]==arr[0] && flight_details[i].row_num[l].seats[1]==arr[1])
 									{
+										
+										cout<<"Enter Seat character1 : ";
 										cin>>letter;
 										for(p=5;p<strlen(flight_details[i].row_num[l].seats);p++)
 										{
+											count7++;
 											//cout<<"wjwejh";
 											if(flight_details[i].row_num[l].seats[p]==letter)
 											{
@@ -423,12 +438,18 @@ int main()
 													p++;
 													//cout<<"blk";
 												}
+												cout<<endl<<"Seat Booked successful!"<<endl;
+												flight_details[i].get_seat();
 												//cout<<strlen(flight_details[i].row_num[l].seats);
 												break;
 											}
+											else if(count7==strlen(flight_details[i].row_num[l].seats))
+											{
+												cout<<"invalid seat character,seat not book.Try again!"<<endl;
+											}
 
 										}
-										flight_details[i].get_seat();
+										
 
 									}
 							}
