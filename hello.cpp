@@ -79,6 +79,7 @@ class flight
 			}
 
 			cout<<"B seats : "<<cnt<<endl;
+			cnt=0;
 		}
 		void b_count1()
 		{
@@ -112,6 +113,7 @@ class flight
 				}
 			}
 			cout<<"E seats : "<<cnt1<<endl;
+			cnt1=0;
 			//bt=cnt1;
 
 		}
@@ -279,14 +281,15 @@ int main()
 
 
 	}
-	int x,s;
+	int x,s,w;
+while(w!=1) {
 	string name;
-	cout<<"MENU"<<endl<<endl;
-	cout<<"1.Available flights"<<endl;
-	cout<<"2.View flights"<<endl;
-	cout<<"3.Seat availability"<<endl;
-	cout<<"4.Seat booking"<<endl;
-	cout<<"5.Exit"<<endl;
+	cout<<endl<<"					MENU"<<endl<<endl;
+	cout<<"				1.Available flights"<<endl;
+	cout<<"				2.View flights"<<endl;
+	cout<<"				3.Seat availability"<<endl;
+	cout<<"				4.Seat booking"<<endl;
+	cout<<"				5.Exit"<<endl;
 	cout<<endl;
 	cout<<"Enter your choice : ";
 	cin>>x;
@@ -300,8 +303,10 @@ int main()
 					flight_details[i].get_a_airport();
 					flight_details[i].get_d_airport();
 					flight_details[i].get_date_time();
+					flight_details[i].get_seat();
 					flight_details[i].b_count();
 					flight_details[i].e_count();
+
 					cout<<endl;
 				}
 				break;
@@ -468,7 +473,11 @@ int main()
 
 
 				}
-				//break;
+				break;
+
+				case 5:
+					w=1;
+					break;
 			
 
 
@@ -476,7 +485,7 @@ int main()
 	   } 
 
 
-	
+	}
 		//flight_details[3].get_seat();
 	
 
