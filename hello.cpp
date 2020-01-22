@@ -3,7 +3,6 @@
 #include <string.h>
 #include <vector>
 using namespace std;
-//int main();
 	struct details
 	{
 		char seats[20]={NULL};  //create struct
@@ -13,52 +12,10 @@ class flight
 {
 	public:
 		string flight_num,a_airport,d_airport,date_time;
-
-	//public:
-		//ofstream myfile;
-		
-
-	public:
-		int row;
-		int i;
-		int j;
+		int row,i,j,cnt1=0,cnte=0,cntb=0,cnt=0,bt;
 		string ab;
-		int bt;
-		int cnt1=0,cnte=0,cntb=0;
-		int cnt=0;
-		// fstream fin1;
-		// string line1;
-		// char array1[20];
-		// int row1=0;
-		// int count1=0;
-
-	
 
 	struct details row_num[60]={NULL}; 
-
-	// public:
-	// 	flight()
-	// 	{
-	// 		while(fin1)
-	// 		{
-	// 			getline(fin1,line1);
-	// 			strcpy(array1,line1.c_str());
-				
-				
-	// 			if(array1[1]==' '|| array1[2]==' ')
-	// 			{
-	// 				//flight_details[count].set_seat(line,row);
-	// 				row1++;
-	// 			}
-
-	// 			if (array1[0]=='\0')
-	// 			{
-	// 				//count1++;
-	// 				continue;
-	// 			}
-	// 		}
-
-	// 	}
 
 	public:
 		void set_seat(string shehan,int l)
@@ -81,13 +38,11 @@ class flight
 					}
 				} 
 			}
-
 			cout<<"B seats : "<<cnt<<endl;
 			cnt=0;
 		}
 		void b_count1()
 		{
-			
 			int j;
 			for(i=0;i<row;i++)
 			{
@@ -99,12 +54,9 @@ class flight
 					}
 				}
 			}
-
-			//cout<<"B seats : "<<cnt<<endl;
 		}
 		void e_count()
 		{
-			
 			int j;
 			for(i=0;i<row;i++)
 			{
@@ -118,12 +70,9 @@ class flight
 			}
 			cout<<"E seats : "<<cnt1<<endl;
 			cnt1=0;
-			//bt=cnt1;
-
 		}
 		void e_count1()
 		{
-			
 			int j;
 			for(i=0;i<row;i++)
 			{
@@ -135,9 +84,6 @@ class flight
 					}
 				}
 			}
-			//cout<<"E seats : "<<cnt1<<endl;
-			//bt=cnt1;
-
 		}
 		void set_flight_num(string x)
 		{
@@ -147,24 +93,6 @@ class flight
 		{
 			cout<<flight_num<<endl;
 		}
-		// void create_file()
-		// {
-		// 	myfile.open("example.txt");
-		// }
-		// void write_file()
-		// {
-			
-		// 	//myfile.open("example.txt");
-		// 	myfile << date_time <<endl;
-		// 	myfile << flight_num <<endl;
-		// 	myfile << a_airport <<endl;
-		// 	myfile << d_airport <<endl;
-		// 	for(i=0;i<row;i++)
-		// 	{
-		// 		myfile << row_num[i].seats <<endl;
-		// 	}
-		// }
-
 		void set_date_time(string y)
 		{
 			date_time=y;
@@ -189,59 +117,24 @@ class flight
 		{
 			cout<<d_airport<<endl;
 		}
-
-		// void get_seat()
-		// {
-			
-		// 	for(i=0;i<row;i++)
-		// 	{
-		// 		for(j=0;j<strlen(row_num[i].seats);j++)
-		// 		{
-		// 			cout<<row_num[i].seats[j];
-		// 			//cout<<endl;
-		// 		}
-
-		// 		//cout<<endl;
-				
-		// 	}
-		// }
-
 		void get_seat()
 		{
 			
 			for(i=0;i<row;i++)
 			{
-				
-				
-					cout<<row_num[i].seats<<"\n";
-					//cout<<endl;
-				
-
-				//cout<<endl;
-				
+				cout<<row_num[i].seats<<"\n";
 			}
-
-			
-		}
-		
+		}	
 
 };
 
 int main()
 {
-	char array[20],array1[20];
-	int count=0,row=0,count1=0,i;
+	char array[20],array1[20],letter,arr[10];
+	int count=0,row=0,count1=0,i,count3=0,count4=0,count5=0,count6=4,count7=5,counter=0,r,j,l,p,n;
 	fstream fin,fin1;
-	string line,line1;
-	int count3=0,count4=0,count5=0,count6=4,count7=5,counter=0;
-	int r,j;
+	string line,line1,row_number;
 	ofstream myfile;
-
-	
-
-	string row_number;
-	int l,p,n;
-	char letter,arr[10];
 	
 	fin1.open("sample_data.txt");
 	while(fin1)
@@ -300,10 +193,6 @@ int main()
 			row=0;
 			continue;
 		}
-
-
-		
-
 
 	}
 	int x,s,w;
@@ -366,20 +255,13 @@ while(w!=1) {
 						
 						break;
 					}
-					// else if(flight_details[i].flight_num!=name)
-					// {
-					// 	cout<<"Invalid flight number!"<<endl;
-					// 	break;
-					// }
-
 
 				}
 				break;
 			case 3:
 				cout<<"Enter the flight number : ";
 				cin>>name;
-				
-				
+
 				for(i=0;i<count;i++)
 				{
 					count4++;
@@ -406,7 +288,6 @@ while(w!=1) {
 				} 
 				break;
 			case 4:
-				//cout<<"helloo";
 				cout<<"Enter flight number : ";
 				cin>>name;
 
@@ -420,28 +301,10 @@ while(w!=1) {
 							cin>>row_number;
 							strcpy(arr,row_number.c_str());
 							r=strlen(arr);
-							// for(l=0;l<60;l++)
-							// {
-							// 	if(r==1 && flight_details[i].row_num[l].seats[0]!=arr[0])
-							// 	{
-							// 		cout<<"Invalid row number123,Try again!";
-							// 		break;
-							// 	}
-							// 	else if(r==2 && flight_details[i].row_num[l].seats[0]==arr[0] && flight_details[i].row_num[l].seats[1]!=arr[1])
-							// 	{
-							// 		cout<<"Invalid row number,Try again!";
-							// 		break;
-							// 	}
-							// }
-
-							//cout<<arr[0];
 							for(l=0;l<60;l++)
 							{
-								//cout<<"hello";
-
 									if(r==1 && flight_details[i].row_num[l].seats[0]==arr[0] &&  flight_details[i].row_num[l].seats[1]==' ')
 									{
-										
 										cout<<"Enter Seat character : ";   
 										cin>>letter;
 										for(p=4;p<strlen(flight_details[i].row_num[l].seats);p++)
@@ -465,31 +328,25 @@ while(w!=1) {
 												cout<<"invalid seat character,seat not book.Try again!"<<endl;
 												break;
 											}
-										}
-										
-										
+										}	
 									}
 									else if(r==2 && flight_details[i].row_num[l].seats[0]==arr[0] && flight_details[i].row_num[l].seats[1]==arr[1])
 									{
-										
 										cout<<"Enter Seat character1 : ";
 										cin>>letter;
 										for(p=5;p<strlen(flight_details[i].row_num[l].seats);p++)
 										{
 											counter++;
 											count7++;
-											//cout<<"wjwejh";
 											if(flight_details[i].row_num[l].seats[p]==letter)
 											{
 												for(n=p;n<strlen(flight_details[i].row_num[l].seats);n++)
 												{
 													flight_details[i].row_num[l].seats[p]=flight_details[i].row_num[l].seats[p+1];
 													p++;
-													//cout<<"blk";
 												}
 												cout<<endl<<"Seat Booked successful!"<<endl;
 												flight_details[i].get_seat();
-												//cout<<strlen(flight_details[i].row_num[l].seats);
 												break;
 											}
 											else if(count7==strlen(flight_details[i].row_num[l].seats))
@@ -499,7 +356,6 @@ while(w!=1) {
 											}
 
 										}
-										
 
 									}
 							}
@@ -517,9 +373,6 @@ while(w!=1) {
 						
 						break;
 					}
-					
-
-
 				}
 				break;
 
@@ -527,7 +380,6 @@ while(w!=1) {
 					myfile.open("example.txt");
 					for(j=0;j<count1-1;j++)
 					{
-
 						myfile <<flight_details[j].flight_num <<endl;
 						myfile << flight_details[j].date_time <<endl;
 						myfile << flight_details[j].a_airport <<endl;
@@ -539,18 +391,12 @@ while(w!=1) {
 						}
 						myfile << endl;
 					}
-					
 							w=1;
 							break;
+				default: 
+				    w=1;
+						 break;
 					
-
-
-
 	   } 
-
-
 	}
-		//flight_details[3].get_seat();
-	
-
 }
